@@ -16,8 +16,8 @@ public class TestsAll extends BaseTest {
 	ReadingExcelFiles read = new ReadingExcelFiles();
 
 	@Test(dataProvider = "myData")
-	public void testHomePage(String name, String email, String jobTitle, String cName, String msg)
-			throws InterruptedException, IOException {
+	public void testHomePage(String name, String email, String jobTitle,
+			String cName, String msg) throws InterruptedException, IOException {
 		HomePage page = new HomePage(driver);
 		page.clickPservices();
 		FormPage pf = page.consultantBtnClick();
@@ -25,7 +25,7 @@ public class TestsAll extends BaseTest {
 		ProductsPage pPage = page.movingToLearningMenu();
 		pPage.signInForm("rahul@gmail.com", "password@123");
 		System.out.println(pPage.capturingErrorMsg());
-//		pPage.navigatinBackToUrl();
+		// pPage.navigatinBackToUrl();
 
 	}
 
@@ -33,12 +33,12 @@ public class TestsAll extends BaseTest {
 	public Object[][] dataProvide() throws IOException {
 
 		Object[][] data = read.readExcelFile(
-				"C:\\Users\\2122119\\eclipse-workspace\\UltimateQA\\src\\main\\java\\com\\testdata", "TestData.xlsx",
-				"Sheet1");
+				"C:\\Users\\2122119\\eclipse-workspace\\UltimateQA\\src\\main\\java\\com\\testdata",
+				"TestData.xlsx", "Sheet1");
 		Object[][] formattedData = new String[data.length - 1][data[1].length];
-//		System.out.println("Row Count: " + data.length);
-//		System.out.println("Col Count: " + data[0].length);
-//		System.out.println(formattedData.length);
+		// System.out.println("Row Count: " + data.length);
+		// System.out.println("Col Count: " + data[0].length);
+		// System.out.println(formattedData.length);
 		for (int i = 1; i < data.length; i++) {
 			for (int j = 0; j < data[0].length; j++) {
 				formattedData[i - 1][j] = data[i][j];
@@ -48,10 +48,12 @@ public class TestsAll extends BaseTest {
 		return formattedData;
 	}
 
-//	@Test(priority = 1, dataProvider = "myData")
-//	public void excelRead(String name, String email, String jobTitle, String companyName, String msg) {
-//
-//		System.out.println(name + " " + email + " " + jobTitle + " " + companyName + " " + msg);
-//	}
+	// @Test(priority = 1, dataProvider = "myData")
+	// public void excelRead(String name, String email, String jobTitle, String
+	// companyName, String msg) {
+	//
+	// System.out.println(name + " " + email + " " + jobTitle + " " +
+	// companyName + " " + msg);
+	// }
 
 }

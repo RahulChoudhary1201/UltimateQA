@@ -1,20 +1,19 @@
 package com.objects;
 
-import java.time.Duration;
-
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class HomePage {
+import com.utils.ActionsWithWaiting;
+
+public class HomePage extends ActionsWithWaiting {
 
 	WebDriver driver;
 
 	public HomePage(WebDriver driver) {
+		super(driver);
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 	}
@@ -40,12 +39,6 @@ public class HomePage {
 		return new FormPage(driver);
 	}
 
-	public void waitingForElement(WebElement ele) {
-		WebDriverWait w = new WebDriverWait(driver, Duration.ofSeconds(10));
-		w.until(ExpectedConditions.visibilityOf(ele));
-	}
-
-	//ActionsWithWaiting acw = new ActionsWithWaiting(driver);
 	public void mouseActions(WebElement ele) {
 
 		Actions act = new Actions(driver);
