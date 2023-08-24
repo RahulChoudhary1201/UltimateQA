@@ -33,11 +33,9 @@ public class ProductsPage {
 	@FindBy(xpath = "//input[@id='user[password]']")
 	private WebElement passInputField;
 
-	// li[@class='form-error__list-item']
 	@FindBy(xpath = "//li[@class='form-error__list-item']")
 	private WebElement errorMsgText;
 
-	// button[@data-callback='onSubmit']
 	@FindBy(xpath = "//button[@data-callback='onSubmit']")
 	private WebElement submitBtn;
 
@@ -50,8 +48,6 @@ public class ProductsPage {
 		driver.navigate().to("https://ultimateqa.com/consulting/");
 		waitingForElement(professionalServices);
 	}
-
-//	ActionsWithWaiting acw = new ActionsWithWaiting(driver);
 
 	public void signInForm(String email, String password) {
 		signInBtn.click();
